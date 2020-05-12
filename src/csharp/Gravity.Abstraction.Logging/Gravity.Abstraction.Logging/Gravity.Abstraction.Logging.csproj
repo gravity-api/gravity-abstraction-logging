@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>    
+    <PackageId>Gravity.Abstraction.Logging</PackageId>
+    <LangVersion>latest</LangVersion>
+    <Title>Gravity API - Logging Abstraction</Title>
+    <Authors>Gravity-API Community</Authors>
+    <Description>Gravity API, logging abstraction. Allows to create any type of logging output using standard conventions.</Description>
+    <PackageTags>automation,crawling,crawl,selenium,appium,automation testing,automation test,qa,gravity,gravity api,scrapping,scrap</PackageTags>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/gravity-api/gravity-abstraction-logging</PackageProjectUrl>
+    <NeutralLanguage>en-US</NeutralLanguage>
+  </PropertyGroup>
+
+</Project>
