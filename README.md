@@ -23,7 +23,7 @@ public class HttpLogger : Logger
     private readonly string applicationName;
     private static readonly HttpClient client = new HttpClient();
 
-    // Will be used to pass values into base class.
+    // Will be used to pass values into next constructor.
     public HttpLogger(string applicationName, string loggerName)
        : this(applicationName, loggerName, baseAddress: "http://localhost:5000/")
     { }
@@ -47,13 +47,13 @@ public class HttpLogger : Logger
     // At this point the logMessage is already populated and you can change it before sending.
     public override void OnExecutor(string level, IDictionary<string, object> logMessage)
     {
-        // setup
-        var requestBody = JsonConvert.SerializeObject(logMessage);
-        var content = new StringContent(content: requestBody, Encoding.UTF8, mediaType: "application/json");
-
         // some message manipulation
         logMessage["EndPoint"] = $"{baseAddress}/logging";
         logMessage["LogType"] = nameof(HttpLogger);
+        
+        // setup
+        var requestBody = JsonConvert.SerializeObject(logMessage);
+        var content = new StringContent(content: requestBody, Encoding.UTF8, mediaType: "application/json");
 
         // send
         client.PostAsync("/loggingServe", content).GetAwaiter().GetResult();
