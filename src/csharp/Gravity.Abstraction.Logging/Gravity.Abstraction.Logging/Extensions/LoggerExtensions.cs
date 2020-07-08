@@ -45,7 +45,7 @@ namespace Gravity.Abstraction.Logging.Extensions
             {
                 var indent = GetIndent(key: pair.Key, maxLength);
                 var message = $"{pair.Value}".Replace(Environment.NewLine, string.Empty);
-                log.Append(indent).Append(pair.Key).Append(": ").AppendLine(message);
+                log.Append("    ").Append(pair.Key).Append(indent).Append(": ").AppendLine(message);
             }
 
             // exception handler
@@ -100,8 +100,9 @@ namespace Gravity.Abstraction.Logging.Extensions
         private static void AppendKey(IDictionary<string, object> logMessage, int maxLength, string key, StringBuilder log)
         {
             log
-                .Append(GetIndent(key, maxLength))
+                .Append("    ")
                 .Append(key)
+                .Append(GetIndent(key, maxLength))
                 .Append(": ")
                 .Append(logMessage[key])
                 .AppendLine();
@@ -109,11 +110,8 @@ namespace Gravity.Abstraction.Logging.Extensions
 
         private static string GetIndent(string key, int maxLength)
         {
-            // constants
-            const int Indent = 4;
-
             // get indent for entry
-            var indent = maxLength - key.Length + Indent;
+            var indent = maxLength - key.Length;
 
             // results
             return new string(' ', indent);
@@ -126,7 +124,6 @@ namespace Gravity.Abstraction.Logging.Extensions
                 .AppendLine("- Exception(s) -")
                 .AppendLine("----------------")
                 .Append(logMessage["Exception"]).AppendLine();
-
         }
     }
 }
