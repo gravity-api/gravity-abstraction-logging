@@ -111,7 +111,7 @@ namespace Gravity.Abstraction.Logging
             }
 
             // setup trace
-            var fileName = $"logs\\{instanceName}-{DateTime.Now:yyyyMMdd}.log";
+            var fileName = $"{instanceName}-{DateTime.Now:yyyyMMdd}.log";
             System.Diagnostics.Trace.AutoFlush = true;
             System.Diagnostics.Trace.Listeners.Add(new TextWriterTraceListener(fileName, name: instanceName));
         }
