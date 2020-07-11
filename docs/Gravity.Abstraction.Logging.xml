@@ -1,0 +1,835 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gravity.Abstraction.Logging</name>
+    </assembly>
+    <members>
+        <member name="M:Gravity.Abstraction.Logging.Extensions.LoggerExtensions.AsReadableString(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Converts a log message into a readable text message that can printed or saved to a file.
+            </summary>
+            <param name="logMessage">Log message to convert.</param>
+            <returns>Readable <see cref="T:System.String"/> when can posted to console or into a file.</returns>
+        </member>
+        <member name="P:Gravity.Abstraction.Logging.ILogger.IsTraceEnabled">
+            <summary>
+            Determines if messages of priority "trace" will be logged.
+            </summary>
+            <value>True if "trace" messages will be logged.</value>
+        </member>
+        <member name="P:Gravity.Abstraction.Logging.ILogger.IsDebugEnabled">
+            <summary>
+            Determines if messages of priority "debug" will be logged.
+            </summary>
+            <value>True if "debug" messages will be logged.</value>
+        </member>
+        <member name="P:Gravity.Abstraction.Logging.ILogger.IsErrorEnabled">
+            <summary>
+            Determines if messages of priority "error" will be logged.
+            </summary>
+            <value>True if "error" messages will be logged.</value>
+        </member>
+        <member name="P:Gravity.Abstraction.Logging.ILogger.IsFatalEnabled">
+            <summary>
+            Determines if messages of priority "fatal" will be logged.
+            </summary>
+            <value>True if "fatal" messages will be logged.</value>
+        </member>
+        <member name="P:Gravity.Abstraction.Logging.ILogger.IsInfoEnabled">
+            <summary>
+            Determines if messages of priority "info" will be logged.
+            </summary>
+            <value>True if "info" messages will be logged.</value>
+        </member>
+        <member name="P:Gravity.Abstraction.Logging.ILogger.IsWarnEnabled">
+            <summary>
+            Determines if messages of priority "warn" will be logged.
+            </summary>
+            <value>True if "warn" messages will be logged.</value>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.CreateChildLogger(System.String)">
+            <summary>
+            Create a new child logger.
+            The name of the child logger is [current-loggers-name].[passed-in-name]
+            </summary>
+            <param name = "loggerName">The sub-name of this logger.</param>
+            <returns>The New ILogger instance.</returns>
+            <exception cref = "T:System.ArgumentException">If the name has an empty element name.</exception>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Trace(System.String)">
+            <summary>
+            Logs a trace message.
+            </summary>
+            <param name = "message">The message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Trace(System.Func{System.String})">
+            <summary>
+            Logs a trace message with lazily constructed message. The message will be constructed only if the <see cref = "P:Gravity.Abstraction.Logging.ILogger.IsTraceEnabled" /> is true.
+            </summary>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Trace(System.String,System.Exception)">
+            <summary>
+            Logs a trace message.
+            </summary>
+            <param name = "message">The message to log</param>
+            <param name = "exception">The exception to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.TraceFormat(System.String,System.Object[])">
+            <summary>
+            Logs a trace message.
+            </summary>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.TraceFormat(System.Exception,System.String,System.Object[])">
+            <summary>
+            Logs a trace message.
+            </summary>
+            <param name = "exception">The exception to log</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.TraceFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a trace message.
+            </summary>
+            <param name = "formatProvider">The format provider to use</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.TraceFormat(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a trace message.
+            </summary>
+            <param name = "exception">The exception to log</param>
+            <param name = "formatProvider">The format provider to use</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Debug(System.String)">
+            <summary>
+            Logs a debug message.
+            </summary>
+            <param name = "message">The message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Debug(System.Func{System.String})">
+            <summary>
+            Logs a debug message with lazily constructed message. The message will be constructed only if the <see cref = "P:Gravity.Abstraction.Logging.ILogger.IsDebugEnabled" /> is true.
+            </summary>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Debug(System.String,System.Exception)">
+            <summary>
+            Logs a debug message.
+            </summary>
+            <param name = "message">The message to log</param>
+            <param name = "exception">The exception to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.DebugFormat(System.String,System.Object[])">
+            <summary>
+            Logs a debug message.
+            </summary>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.DebugFormat(System.Exception,System.String,System.Object[])">
+            <summary>
+            Logs a debug message.
+            </summary>
+            <param name = "exception">The exception to log</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.DebugFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a debug message.
+            </summary>
+            <param name = "formatProvider">The format provider to use</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.DebugFormat(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a debug message.
+            </summary>
+            <param name = "exception">The exception to log</param>
+            <param name = "formatProvider">The format provider to use</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Error(System.String)">
+            <summary>
+            Logs an error message.
+            </summary>
+            <param name = "message">The message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Error(System.Func{System.String})">
+            <summary>
+            Logs an error message with lazily constructed message. The message will be constructed only if the <see cref = "P:Gravity.Abstraction.Logging.ILogger.IsErrorEnabled" /> is true.
+            </summary>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Error(System.String,System.Exception)">
+            <summary>
+            Logs an error message.
+            </summary>
+            <param name = "message">The message to log</param>
+            <param name = "exception">The exception to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.ErrorFormat(System.String,System.Object[])">
+            <summary>
+            Logs an error message.
+            </summary>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.ErrorFormat(System.Exception,System.String,System.Object[])">
+            <summary>
+            Logs an error message.
+            </summary>
+            <param name = "exception">The exception to log</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.ErrorFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs an error message.
+            </summary>
+            <param name = "formatProvider">The format provider to use</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.ErrorFormat(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs an error message.
+            </summary>
+            <param name = "exception">The exception to log</param>
+            <param name = "formatProvider">The format provider to use</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Fatal(System.String)">
+            <summary>
+            Logs a fatal message.
+            </summary>
+            <param name = "message">The message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Fatal(System.Func{System.String})">
+            <summary>
+            Logs a fatal message with lazily constructed message. The message will be constructed only if the <see cref = "P:Gravity.Abstraction.Logging.ILogger.IsFatalEnabled" /> is true.
+            </summary>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Fatal(System.String,System.Exception)">
+            <summary>
+            Logs a fatal message.
+            </summary>
+            <param name = "message">The message to log</param>
+            <param name = "exception">The exception to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.FatalFormat(System.String,System.Object[])">
+            <summary>
+            Logs a fatal message.
+            </summary>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.FatalFormat(System.Exception,System.String,System.Object[])">
+            <summary>
+            Logs a fatal message.
+            </summary>
+            <param name = "exception">The exception to log</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.FatalFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a fatal message.
+            </summary>
+            <param name = "formatProvider">The format provider to use</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.FatalFormat(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a fatal message.
+            </summary>
+            <param name = "exception">The exception to log</param>
+            <param name = "formatProvider">The format provider to use</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Info(System.String)">
+            <summary>
+            Logs an info message.
+            </summary>
+            <param name = "message">The message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Info(System.Func{System.String})">
+            <summary>
+            Logs a info message with lazily constructed message. The message will be constructed only if the <see cref = "P:Gravity.Abstraction.Logging.ILogger.IsInfoEnabled" /> is true.
+            </summary>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Info(System.String,System.Exception)">
+            <summary>
+            Logs an info message.
+            </summary>
+            <param name = "message">The message to log</param>
+            <param name = "exception">The exception to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.InfoFormat(System.String,System.Object[])">
+            <summary>
+            Logs an info message.
+            </summary>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.InfoFormat(System.Exception,System.String,System.Object[])">
+            <summary>
+            Logs an info message.
+            </summary>
+            <param name = "exception">The exception to log</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.InfoFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs an info message.
+            </summary>
+            <param name = "formatProvider">The format provider to use</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.InfoFormat(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs an info message.
+            </summary>
+            <param name = "exception">The exception to log</param>
+            <param name = "formatProvider">The format provider to use</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Warn(System.String)">
+            <summary>
+            Logs a warn message.
+            </summary>
+            <param name = "message">The message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Warn(System.Func{System.String})">
+            <summary>
+            Logs a warn message with lazily constructed message. The message will be constructed only if the <see cref = "P:Gravity.Abstraction.Logging.ILogger.IsWarnEnabled" /> is true.
+            </summary>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.Warn(System.String,System.Exception)">
+            <summary>
+            Logs a warn message.
+            </summary>
+            <param name = "message">The message to log</param>
+            <param name = "exception">The exception to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.WarnFormat(System.String,System.Object[])">
+            <summary>
+            Logs a warn message.
+            </summary>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.WarnFormat(System.Exception,System.String,System.Object[])">
+            <summary>
+            Logs a warn message.
+            </summary>
+            <param name = "exception">The exception to log</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.WarnFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a warn message.
+            </summary>
+            <param name = "formatProvider">The format provider to use</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.ILogger.WarnFormat(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a warn message.
+            </summary>
+            <param name = "exception">The exception to log</param>
+            <param name = "formatProvider">The format provider to use</param>
+            <param name = "format">Format string for the message to log</param>
+            <param name = "args">Format arguments for the message to log</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.LogFactory.Create``1(System.String,System.String)">
+            <summary>
+            Creates a new <see cref="T:Gravity.Abstraction.Logging.Logger"/> instance.
+            </summary>
+            <typeparam name="T">Type of <see cref="T:Gravity.Abstraction.Logging.Logger"/> to create.</typeparam>
+            <param name="applicationName">Application name.</param>
+            <param name="loggerName">Logger name.</param>
+            <returns>An <see cref="T:Gravity.Abstraction.Logging.ILogger"/> interface representing your <see cref="T:Gravity.Abstraction.Logging.Logger"/> type.</returns>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.LogFactory.Create``1(System.Object[])">
+            <summary>
+            Creates a new <see cref="T:Gravity.Abstraction.Logging.Logger"/> instance.
+            </summary>
+            <typeparam name="T">Type of <see cref="T:Gravity.Abstraction.Logging.Logger"/> to create.</typeparam>
+            <param name="args"><see cref="T:Gravity.Abstraction.Logging.Logger"/> constructor parameters.</param>
+            <returns>An <see cref="T:Gravity.Abstraction.Logging.ILogger"/> interface representing your <see cref="T:Gravity.Abstraction.Logging.Logger"/> type.</returns>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new <see cref="T:Gravity.Abstraction.Logging.Logger"/> instance.
+            </summary>
+            <param name="applicationName">Application under logging.</param>
+            <param name="loggerName">Logger name.</param>
+        </member>
+        <member name="P:Gravity.Abstraction.Logging.Logger.LogMessage">
+            <summary>
+            Gets the current log message (if any).
+            </summary>
+        </member>
+        <member name="P:Gravity.Abstraction.Logging.Logger.LogOnConsole">
+            <summary>
+            Gets or sets a value to activate console logging as well as current message logging.
+            </summary>
+        </member>
+        <member name="P:Gravity.Abstraction.Logging.Logger.IsDebugEnabled">
+            <summary>
+            Gets or sets "Debug" level logging.
+            "Debug" logging can be used anywhere you see fit and provided information which helps debugging
+            your application.
+            </summary>
+        </member>
+        <member name="P:Gravity.Abstraction.Logging.Logger.IsErrorEnabled">
+            <summary>
+            Gets or sets "Error" level logging.
+            "Error" logging can be used on every "catch" block which does not terminate your application,
+            but affects the application flow.
+            </summary>
+        </member>
+        <member name="P:Gravity.Abstraction.Logging.Logger.IsFatalEnabled">
+            <summary>
+            Gets or sets "Fatal" level logging.
+            "Fatal" logging can be used on every "catch" block which terminates your application.
+            </summary>
+        </member>
+        <member name="P:Gravity.Abstraction.Logging.Logger.IsInfoEnabled">
+            <summary>
+            Gets or sets "Information" level logging.
+            "Information" logging can be used whenever you want to let the user know that something happens.
+            </summary>
+        </member>
+        <member name="P:Gravity.Abstraction.Logging.Logger.IsWarnEnabled">
+            <summary>
+            Gets or sets "Warning" level logging.
+            "Warning" logging can be used whenever you want to let the user know that something happens,
+            which can affect the application flow (like default values, retries missing information, etc.).
+            </summary>
+        </member>
+        <member name="P:Gravity.Abstraction.Logging.Logger.IsTraceEnabled">
+            <summary>
+            Gets or sets "Trace" level logging.
+            "Trace" logging can be used anywhere you see fit and provided any information about the
+            application flow, not necessarily relevant or informative.
+            </summary>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.CreateChildLogger(System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Gravity.Abstraction.Logging.Logger"/>, with the same application name and a different logger name.
+            </summary>
+            <param name="loggerName">Logger name.</param>
+            <returns>A new instance of <see cref="T:Gravity.Abstraction.Logging.Logger"/>.</returns>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Debug(System.Func{System.String})">
+            <summary>
+            Logs a "Debug" message with lazily constructed message. The message will be constructed
+            only if the IsDebugEnabled is true.
+            </summary>
+            <param name="messageFactory">A delegate for creating a log message.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Debug(System.String)">
+            <summary>
+            Logs a "Debug" message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Debug(System.String,System.Exception)">
+            <summary>
+            Logs a "Debug" message.
+            </summary>
+            <param name="message">The exception to log.</param>
+            <param name="exception">The message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.DebugFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a "Debug" message.
+            </summary>
+            <param name="formatProvider">The <see cref="T:System.IFormatProvider"/> to use.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.DebugFormat(System.String,System.Object[])">
+            <summary>
+            Logs a "Debug" message.
+            </summary>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.DebugFormat(System.Exception,System.String,System.Object[])">
+            <summary>
+            Logs a "Debug" message.
+            </summary>
+            <param name="exception">The exception to log.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.DebugFormat(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a "Debug" message.
+            </summary>
+            <param name="exception">The <see cref="T:System.Exception"/> to log.</param>
+            <param name="formatProvider">The <see cref="T:System.IFormatProvider"/> to use.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Error(System.String,System.Exception)">
+            <summary>
+            Logs an "Error" message.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The <see cref="T:System.Exception"/> to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Error(System.Func{System.String})">
+            <summary>
+            Logs an "Error" message with lazily constructed message. The message will be constructed
+            only if the IsErrorEnabled is true.
+            </summary>
+            <param name="messageFactory">A delegate for creating a log message.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Error(System.String)">
+            <summary>
+            Logs an "Error" message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.ErrorFormat(System.Exception,System.String,System.Object[])">
+            <summary>
+            Logs an "Error" message.
+            </summary>
+            <param name="exception">The <see cref="T:System.Exception"/> to log.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.ErrorFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs an "Error" message.
+            </summary>
+            <param name="formatProvider">The <see cref="T:System.IFormatProvider"/> to use.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.ErrorFormat(System.String,System.Object[])">
+            <summary>
+            Logs an "Error" message.
+            </summary>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.ErrorFormat(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs an "Error" message.
+            </summary>
+            <param name="exception">The <see cref="T:System.Exception"/> to log.</param>
+            <param name="formatProvider">The <see cref="T:System.IFormatProvider"/> to use.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Fatal(System.String)">
+            <summary>
+            Logs a "Fatal" message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Fatal(System.Func{System.String})">
+            <summary>
+            Logs a "Fatal" message with lazily constructed message. The message will be constructed
+            only if the IsFatalEnabled is true.
+            </summary>
+            <param name="messageFactory">A delegate for creating a log message.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Fatal(System.String,System.Exception)">
+            <summary>
+            Logs a "Fatal" message.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.FatalFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a "Fatal" message.
+            </summary>
+            <param name="formatProvider">The <see cref="T:System.IFormatProvider"/> to use.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.FatalFormat(System.String,System.Object[])">
+            <summary>
+            Logs a "Fatal" message.
+            </summary>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.FatalFormat(System.Exception,System.String,System.Object[])">
+            <summary>
+            Logs a "Fatal" message.
+            </summary>
+            <param name="exception">The <see cref="T:System.Exception"/> to log.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.FatalFormat(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a "Fatal" message.
+            </summary>
+            <param name="exception">The <see cref="T:System.Exception"/> to log.</param>
+            <param name="formatProvider">The <see cref="T:System.IFormatProvider"/> to use.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Info(System.String,System.Exception)">
+            <summary>
+            Logs an "Information" message.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The <see cref="T:System.Exception"/> to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Info(System.String)">
+            <summary>
+            Logs an "Information" message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Info(System.Func{System.String})">
+            <summary>
+            Logs an "Information" message with lazily constructed message. The message will be constructed
+            only if the IsInfoEnabled is true.
+            </summary>
+            <param name="messageFactory">A delegate for creating a log message.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.InfoFormat(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs an "Information" message.
+            </summary>
+            <param name="exception">The <see cref="T:System.Exception"/> to log.</param>
+            <param name="formatProvider">The <see cref="T:System.IFormatProvider"/> to use.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.InfoFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs an "Information" message.
+            </summary>
+            <param name="formatProvider">The <see cref="T:System.IFormatProvider"/> to use.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.InfoFormat(System.Exception,System.String,System.Object[])">
+            <summary>
+            Logs an "Information" message.
+            </summary>
+            <param name="exception">The <see cref="T:System.Exception"/> to log.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.InfoFormat(System.String,System.Object[])">
+            <summary>
+            Logs an "Information" message.
+            </summary>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Warn(System.Func{System.String})">
+            <summary>
+            Logs a "Warning" message with lazily constructed message. The message will be constructed
+            only if the IsWarnEnabled is true.
+            </summary>
+            <param name="messageFactory">A delegate for creating a log message.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Warn(System.String,System.Exception)">
+            <summary>
+            Logs a "Warning" message.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Warn(System.String)">
+            <summary>
+            Logs a "Warning" message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.WarnFormat(System.Exception,System.String,System.Object[])">
+            <summary>
+            Logs a "Warning" message.
+            </summary>
+            <param name="exception">The <see cref="T:System.Exception"/> to log.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.WarnFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a "Warning" message.
+            </summary>
+            <param name="formatProvider">The <see cref="T:System.IFormatProvider"/> to use.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.WarnFormat(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a "Warning" message.
+            </summary>
+            <param name="exception">The <see cref="T:System.Exception"/> to log.</param>
+            <param name="formatProvider">The <see cref="T:System.IFormatProvider"/> to use.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.WarnFormat(System.String,System.Object[])">
+            <summary>
+            Logs a "Warning" message.
+            </summary>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Trace(System.Func{System.String})">
+            <summary>
+            Logs a "Trace" message with lazily constructed message. The message will be constructed
+            only if the IsTraceEnabled is true.
+            </summary>
+            <param name="messageFactory">A delegate for creating a log message.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Trace(System.String,System.Exception)">
+            <summary>
+            Logs a "Trace" message.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.Trace(System.String)">
+            <summary>
+            Logs a "Trace" message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.TraceFormat(System.Exception,System.String,System.Object[])">
+            <summary>
+            Logs a "Trace" message.
+            </summary>
+            <param name="exception">The <see cref="T:System.Exception"/> to log.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.TraceFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a "Trace" message.
+            </summary>
+            <param name="formatProvider">The <see cref="T:System.IFormatProvider"/> to use.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.TraceFormat(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a "Trace" message.
+            </summary>
+            <param name="exception">The <see cref="T:System.Exception"/> to log.</param>
+            <param name="formatProvider">The <see cref="T:System.IFormatProvider"/> to use.</param>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.TraceFormat(System.String,System.Object[])">
+            <summary>
+            Logs a "Trace" message.
+            </summary>
+            <param name="format">Format string for the message to log.</param>
+            <param name="args">Format arguments for the message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.OnExecutor(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Executes a single log request against this <see cref="T:Gravity.Abstraction.Logging.Logger"/>.
+            </summary>
+            <param name="level">Log level.</param>
+            <param name="logMessage">Message to log.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.Logger.OnSetLogLevel">
+            <summary>
+            Implements a logic routine to get log level based on available <see cref="T:Gravity.Abstraction.Logging.LogLevel"/>.
+            </summary>
+            <returns>Available <see cref="T:Gravity.Abstraction.Logging.LogLevel"/>.</returns>
+        </member>
+        <member name="T:Gravity.Abstraction.Logging.LogLevel">
+            <summary>
+            A list of all available log levels used by <see cref="T:Gravity.Abstraction.Logging.Logger"/>.
+            </summary>
+        </member>
+        <member name="F:Gravity.Abstraction.Logging.LogLevel.Debug">
+            <summary>
+            Constant value for "Debug" logging level.
+            </summary>
+        </member>
+        <member name="F:Gravity.Abstraction.Logging.LogLevel.Information">
+            <summary>
+            Constant value for "Information" logging level.
+            </summary>
+        </member>
+        <member name="F:Gravity.Abstraction.Logging.LogLevel.Warning">
+            <summary>
+            Constant value for "Warning" logging level.
+            </summary>
+        </member>
+        <member name="F:Gravity.Abstraction.Logging.LogLevel.Error">
+            <summary>
+            Constant value for "Error" logging level.
+            </summary>
+        </member>
+        <member name="F:Gravity.Abstraction.Logging.LogLevel.Fatal">
+            <summary>
+            Constant value for "Fatal" logging level.
+            </summary>
+        </member>
+        <member name="F:Gravity.Abstraction.Logging.LogLevel.Trace">
+            <summary>
+            Constant value for "Trace" logging level.
+            </summary>
+        </member>
+        <member name="T:Gravity.Abstraction.Logging.TraceLogger">
+            <summary>
+            <see cref="T:Gravity.Abstraction.Logging.Logger"/> implementation for <see cref="T:System.Diagnostics.Trace"/> logging.
+            </summary>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.TraceLogger.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new <see cref="T:Gravity.Abstraction.Logging.Logger"/> instance.
+            </summary>
+            <param name="applicationName">Application under logging.</param>
+            <param name="loggerName">Logger name.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.TraceLogger.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates a new <see cref="T:Gravity.Abstraction.Logging.Logger"/> instance.
+            </summary>
+            <param name="applicationName">Application under logging.</param>
+            <param name="loggerName">Logger name.</param>
+            <param name="inDirectory">The directory path in which to write the logs.</param>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.TraceLogger.CreateChildLogger(System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Gravity.Abstraction.Logging.Logger"/>, with the same application name and a different logger name.
+            </summary>
+            <param name="loggerName">Logger name.</param>
+            <returns>A new instance of <see cref="T:Gravity.Abstraction.Logging.Logger"/>.</returns>
+        </member>
+        <member name="M:Gravity.Abstraction.Logging.TraceLogger.OnExecutor(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Executes a single log request against this <see cref="T:Gravity.Abstraction.Logging.Logger"/>.
+            </summary>
+            <param name="level">Log level.</param>
+            <param name="logMessage">Message to log.</param>
+        </member>
+    </members>
+</doc>

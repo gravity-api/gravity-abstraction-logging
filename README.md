@@ -1,6 +1,8 @@
 # Gravity Abstraction Logging
 Gravity API, logging abstraction. Allows to create any type of logging output using standard conventions.
 
+[Assembly Documentation](./docs/index.md 'index')
+
 # Quick Start (using the existing ```TraceLogger```)
 ```csharp
 /* 
