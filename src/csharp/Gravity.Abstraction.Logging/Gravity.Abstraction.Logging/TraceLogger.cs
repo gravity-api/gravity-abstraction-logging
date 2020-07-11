@@ -98,7 +98,7 @@ namespace Gravity.Abstraction.Logging
                 : inDirectory;
 
             // initialize listener
-            Directory.CreateDirectory($"{directory}\\logs".Replace("\\\\", "\\").Replace("//", "/"));
+            Directory.CreateDirectory(directory.Replace("\\\\", "\\").Replace("//", "/"));
 
             // setup conditions
             var exists = System.Diagnostics.Trace
