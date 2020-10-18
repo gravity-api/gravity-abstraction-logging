@@ -5,6 +5,9 @@ using System;
 
 namespace Gravity.Abstraction.Logging
 {
+	/// <summary>
+	/// ILogger interface.
+	/// </summary>
 	public interface ILogger
 	{
 		/// <summary>

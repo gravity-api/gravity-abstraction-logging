@@ -5,6 +5,9 @@ using System;
 
 namespace Gravity.Abstraction.Logging
 {
+    /// <summary>
+    /// Factory for creating loggers based on ILogger.
+    /// </summary>
     public static class LogFactory
     {
         /// <summary>

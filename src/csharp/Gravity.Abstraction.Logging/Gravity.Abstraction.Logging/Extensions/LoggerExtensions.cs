@@ -8,6 +8,9 @@ using System.Text;
 
 namespace Gravity.Abstraction.Logging.Extensions
 {
+    /// <summary>
+    /// Extensions package for ILogger.
+    /// </summary>
     public static class LoggerExtensions
     {
         /// <summary>

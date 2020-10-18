@@ -9,6 +9,9 @@ using System.Reflection;
 
 namespace Gravity.Abstraction.Logging
 {
+    /// <summary>
+    /// Base class for all ILogger implementations.
+    /// </summary>
     public abstract class Logger : ILogger
     {
         // members: state

@@ -93,12 +93,12 @@ namespace Gravity.Abstraction.Logging
         private void SetupTraceListener(string instanceName, string inDirectory)
         {
             // setup directory
-            var directory = string.IsNullOrEmpty(inDirectory)
+            var directory = string.IsNullOrEmpty(inDirectory) || inDirectory.Equals(".")
                 ? Environment.CurrentDirectory
                 : inDirectory;
 
             // initialize listener
-            Directory.CreateDirectory(directory.Replace("\\\\", "\\").Replace("//", "/"));
+            Directory.CreateDirectory(directory);
 
             // setup conditions
             var exists = System.Diagnostics.Trace
@@ -111,7 +111,7 @@ namespace Gravity.Abstraction.Logging
             }
 
             // setup trace
-            var fileName = $"{directory}\\{instanceName}-{DateTime.Now:yyyyMMdd}.log";
+            var fileName = Path.Combine(directory, $"{instanceName}-{DateTime.Now:yyyyMMdd}.log");
             System.Diagnostics.Trace.AutoFlush = true;
             System.Diagnostics.Trace.Listeners.Add(new TextWriterTraceListener(fileName, name: instanceName));
         }
